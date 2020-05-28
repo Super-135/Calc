@@ -1,0 +1,15 @@
+#btnClear{
+    -fx-background-color: red;
+}
+
+#btnClear:hover{
+    -fx-background-color: FireBrick;
+}
+
+#btnRes{
+    -fx-background-color: SkyBlue;
+}
+
+#btnRes:hover{
+    -fx-background-color: DodgerBlue;
+}
