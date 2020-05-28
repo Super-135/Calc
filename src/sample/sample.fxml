@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="564.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="598.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <stylesheets>
+      <URL value="@/css/style.css" />
+   </stylesheets>
    <children>
-      <Button layoutX="255.0" layoutY="136.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="-" />
-      <Button layoutX="175.0" layoutY="135.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="*" />
-      <Button layoutX="95.0" layoutY="135.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="/" />
-      <Button layoutX="15.0" layoutY="135.0" mnemonicParsing="false" onAction="#clearTextField" prefHeight="80.0" prefWidth="80.0" text="C" />
-      <Button layoutX="255.0" layoutY="216.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="80.0" text="+" />
-      <Button layoutX="175.0" layoutY="215.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="9" />
-      <Button layoutX="95.0" layoutY="215.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="8" />
-      <Button layoutX="15.0" layoutY="215.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="7" />
-      <Button layoutX="175.0" layoutY="296.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="6" />
-      <Button layoutX="95.0" layoutY="296.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="5" />
-      <Button layoutX="15.0" layoutY="296.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="4" />
-      <Button layoutX="255.0" layoutY="377.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="80.0" text="=" />
-      <Button layoutX="175.0" layoutY="376.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="3" />
-      <Button layoutX="95.0" layoutY="376.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="2" />
-      <Button layoutX="15.0" layoutY="376.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="1" />
-      <Button layoutX="175.0" layoutY="457.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="." />
-      <Button layoutX="15.0" layoutY="457.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="160.0" text="0" />
-      <TextField fx:id="textField" alignment="CENTER_RIGHT" editable="false" layoutX="15.0" layoutY="29.0" onKeyPressed="#keyChar" prefHeight="80.0" prefWidth="321.0">
+      <Button fx:id="btnMinus" layoutX="255.0" layoutY="178.0" mnemonicParsing="false" onAction="#calculate" prefHeight="80.0" prefWidth="80.0" text="-" />
+      <Button fx:id="btnMultiplication" layoutX="175.0" layoutY="177.0" mnemonicParsing="false" onAction="#calculate" prefHeight="80.0" prefWidth="80.0" text="*" />
+      <Button fx:id="btnDivision" layoutX="95.0" layoutY="177.0" mnemonicParsing="false" onAction="#calculate" prefHeight="80.0" prefWidth="80.0" text="/" />
+      <Button fx:id="btnClear" layoutX="15.0" layoutY="177.0" mnemonicParsing="false" onAction="#clearTextField" prefHeight="80.0" prefWidth="80.0" text="C" />
+      <Button fx:id="btnAddition" layoutX="255.0" layoutY="258.0" mnemonicParsing="false" onAction="#calculate" prefHeight="160.0" prefWidth="80.0" text="+" />
+      <Button layoutX="175.0" layoutY="257.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="9">
+         <opaqueInsets>
+            <Insets top="5.0" />
+         </opaqueInsets></Button>
+      <Button layoutX="95.0" layoutY="257.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="8" />
+      <Button layoutX="15.0" layoutY="257.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="7" />
+      <Button layoutX="175.0" layoutY="338.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="6" />
+      <Button layoutX="95.0" layoutY="338.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="5" />
+      <Button layoutX="15.0" layoutY="338.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="4" />
+      <Button fx:id="btnRes" layoutX="255.0" layoutY="419.0" mnemonicParsing="false" onAction="#calculate" prefHeight="160.0" prefWidth="80.0" text="=" />
+      <Button layoutX="175.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="3" />
+      <Button layoutX="95.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="2" />
+      <Button layoutX="15.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="80.0" text="1" />
+      <Button layoutX="175.0" layoutY="499.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="." />
+      <Button layoutX="15.0" layoutY="499.0" mnemonicParsing="false" onAction="#clickNamber" prefHeight="80.0" prefWidth="160.0" text="0" />
+      <TextField fx:id="textField" alignment="CENTER_RIGHT" editable="false" layoutX="15.0" layoutY="71.0" prefHeight="80.0" prefWidth="321.0">
          <font>
             <Font name="System Bold" size="30.0" />
          </font></TextField>
+      <TextField fx:id="textFieldCopy" alignment="CENTER_RIGHT" editable="false" layoutX="15.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="321.0" />
    </children>
 </AnchorPane>
